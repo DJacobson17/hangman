@@ -6,13 +6,17 @@ module TextInstructions
 
       WELCOME TO HANGMAN
             
-             ________
-             |       |       R Q N P G F
-             O       |
-            /|\\      |     
-            / \\      |
-                  ___|___     _ A _ T _
-                  
+             _________
+             |/      |      
+             |       O
+             |      /|\\
+             |       |
+             |      / \\
+           __|__    
+                 
+        _ _ _ _ _ _
+
+        Used Letters: R G H X Z
                   
      How to play:
      
