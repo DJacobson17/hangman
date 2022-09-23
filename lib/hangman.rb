@@ -1,12 +1,14 @@
 require_relative 'instructions'
 require_relative 'display'
 require_relative 'gameplay'
-
+require 'pry-byebug'
 
 class Hangman # rubocop:disable Style/Documentation
   include TextInstructions
   include Display
   include Gameplay
+  attr_accessor :guess, :hidden
+  
   def initialize
     puts instructions
     new_game
@@ -14,10 +16,13 @@ class Hangman # rubocop:disable Style/Documentation
 
   def new_game
     @game_over = false
-    # word_select
-    # turn_display
-    # while game_over == false
-    puts missing_letters(word_select)
+    @result = ''
+    @tries = 7
+    @incorrect_guess = []
+    @used = []
+    create_hidden(word_select)
+    play_round while @game_over == false
+    display_result(@result)
   end
 
   def word_select
@@ -27,8 +32,8 @@ class Hangman # rubocop:disable Style/Documentation
       list << word if word.length >= 5 && word.length <= 12
     end
     @secret_word = list.sample(1)
-    @secret_word.to_s.gsub(/("|\[|\])/, "")
-
+    @secret_word = @secret_word.to_s.gsub(/("|\[|\])/, '').upcase
+    @secret_word
   end
 end
 Hangman.new
