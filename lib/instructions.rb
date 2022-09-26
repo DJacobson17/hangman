@@ -29,9 +29,10 @@ module TextInstructions
      in the list of incorrect letters and an element of the man
      is added.
       The game is over when all of the letters are guessed correctly
-    or when the stick man is completed (6 misses).
+     or when the stick man is completed (6 misses).
 
                  GOOD LUCK!!!
+
 
     HEREDOC
   end
